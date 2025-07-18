@@ -3,8 +3,14 @@ import { Server } from 'socket.io';
 
 let allCounts = {};
 
-const PORT = 3000;
-const ORIGIN = 'http://localhost:5173'
+const PORT = Nuber(process.ENV.PORT);
+
+if ( !PORT) {
+    console.error(" No PORT env var-cannot start server.");
+    process.exit(1);
+}
+
+const ORIGIN = 'https://tumo-ggepenyan-client.vercel.app'
 
 const httpServer = createServer();
 
